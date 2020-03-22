@@ -14,7 +14,7 @@ def create(event, context):
         logging.error("Validation Failed")
         raise Exception("Couldn't create the todo item.")
     
-    timestamp = str(time.time())
+    timestamp = int(time.time() * 1000)
 
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
